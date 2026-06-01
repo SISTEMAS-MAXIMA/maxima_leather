@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxima Leather | Catálogo de Artículos Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #1a1612;
+            --bg-cream: #f5efe6;
+            --paper: #ffffff;
+            --leather: #6b4423;
+            --leather-deep: #3e2714;
+            --accent: #a87645;
+            --ink: #1f1a14;
+            --text: #2d2620;
+            --muted: #786b5c;
+            --line: #e0d6c5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--paper);
+            color: var(--text);
+            line-height: 1.65;
+            font-weight: 400;
+        }
+
+        /* ============ TOPBAR ============ */
+        .topbar {
+            background: var(--bg-dark);
+            color: var(--bg-cream);
+            text-align: center;
+            padding: 0.6rem 1rem;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            font-weight: 400;
+        }
+
+        /* ============ HEADER ============ */
+        header {
+            background: var(--paper);
+            padding: 1.4rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            color: var(--ink);
+            letter-spacing: 0.04em;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--leather);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.4rem;
+        }
+
+        nav a {
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.88rem;
+            transition: color 0.25s ease;
+        }
+
+        nav a:hover {
+            color: var(--leather);
+        }
+
+        /* ============ HERO ============ */
+        .hero {
+            min-height: 78vh;
+            background:
+                linear-gradient(rgba(26, 22, 18, 0.55), rgba(26, 22, 18, 0.65)),
+                url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=2000&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 5%;
+            color: var(--paper);
+        }
+
+        .hero-inner {
+            max-width: 720px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: clamp(2.4rem, 5vw, 4.2rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 540px;
+            margin-bottom: 2.4rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--paper);
+            color: var(--ink);
+            padding: 1rem 2.2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--paper);
+            transition: all 0.25s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--leather);
+            border-color: var(--leather);
+            color: var(--paper);
+        }
+
+        /* ============ PILLARS ============ */
+        .pillars {
+            padding: 5rem 5%;
+            background: var(--bg-cream);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pillar-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--leather);
+        }
+
+        .pillar h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            color: var(--ink);
+        }
+
+        .pillar p {
+            font-size: 0.92rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ============ SECTION HEADERS ============ */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-eyebrow {
+            font-size: 0.78rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--leather);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3.8vw, 2.8rem);
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.2;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* ============ COLLECTION ============ */
+        .collection {
+            padding: 6rem 5%;
+            background: var(--paper);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--paper);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .product-img-wrap {
+            overflow: hidden;
+            background: var(--bg-cream);
+            aspect-ratio: 4/5;
+            margin-bottom: 1.2rem;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.04);
+        }
+
+        .product-category {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--leather);
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .product-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-desc {
+            font-size: 0.92rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ============ STORY ============ */
+        .story {
+            padding: 6rem 5%;
+            background: var(--bg-cream);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .story-img {
+            aspect-ratio: 4/5;
+            overflow: hidden;
+        }
+
+        .story-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .story-content .section-eyebrow {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .story-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+        }
+
+        .story-content p {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 1.2rem;
+            line-height: 1.75;
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background-color: var(--bg-dark);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .footer-brand .logo {
+            color: var(--paper);
+            font-size: 1.6rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            max-width: 320px;
+        }
+
+        .footer-col h4 {
+            color: var(--paper);
+            font-size: 0.95rem;
+            margin-bottom: 1.1rem;
+            font-weight: 600;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: color 0.25s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--paper);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            font-size: 0.82rem;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 900px) {
+            nav ul {
+                display: none;
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 3rem 5%;
+                min-height: 70vh;
+            }
+
+            .btn-primary {
+                text-align: center;
+                width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .pillars,
+            .collection,
+            .story {
+                padding: 4rem 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">Garantía de por vida en toda nuestra colección</div>
+
+    <header>
+        <a href="#inicio" class="logo">Maxima <span>Leather</span></a>
+        <nav>
+            <ul>
+                <li><a href="#colecciones">Colecciones</a></li>
+                <li><a href="#proceso">Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-inner">
+            <h1>Artículos de cuero hechos para durar generaciones.</h1>
+            <p>Cinturones, maletines y bolsos elaborados a mano con cuero de grano superior. Calidad artesanal mexicana
+                desde Nuevo León.</p>
+            <div class="hero-actions">
+                <a href="#colecciones" class="btn-primary">Explorar Catálogo</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="pillars" id="proceso">
+        <div class="pillars-grid">
+            <div class="pillar">
+                <div class="pillar-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M3 12c2-3 6-5 9-5s7 2 9 5c-2 3-6 5-9 5s-7-2-9-5z" />
+                        <circle cx="12" cy="12" r="2.5" />
+                    </svg>
+                </div>
+                <h3>Cuero de Grano Superior</h3>
+                <p>Seleccionamos a mano cada pieza de cuero, asegurando la mejor calidad en cada producto.</p>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M4 6h16M4 12h16M4 18h16" />
+                        <circle cx="8" cy="6" r="1.5" fill="currentColor" />
+                        <circle cx="16" cy="12" r="1.5" fill="currentColor" />
+                        <circle cx="8" cy="18" r="1.5" fill="currentColor" />
+                    </svg>
+                </div>
+                <h3>Hecho a Mano</h3>
+                <p>Cada pieza es cortada, tratada y cosida por artesanos expertos en nuestro taller en Nuevo León.</p>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M12 7v5l3 2" />
+                    </svg>
+                </div>
+                <h3>Garantía de por Vida</h3>
+                <p>Confiamos tanto en nuestro trabajo que respaldamos cada pieza con garantía permanente.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="collection" id="colecciones">
+        <div class="section-header">
+            <div class="section-eyebrow">Catálogo</div>
+            <h2 class="section-title">Nuestras piezas destacadas</h2>
+        </div>
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=800&q=80"
+                        alt="Cinturón Maxima Pro" class="product-img">
+                </div>
+                <div class="product-category">Cinturones</div>
+                <h3 class="product-title">Cinturón Maxima Pro 10mm</h3>
+                <p class="product-desc">Cinturón de cuero de doble capa con hebilla de acero forjada. Diseñado para
+                    soporte y durabilidad.</p>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80"
+                        alt="Maletín de Cuero" class="product-img">
+                </div>
+                <div class="product-category">Maletines</div>
+                <h3 class="product-title">Maletín Ejecutivo</h3>
+                <p class="product-desc">Maletín de cuero curtido vegetalmente con compartimentos reforzados y herrajes
+                    de latón.</p>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=800&q=80"
+                        alt="Straps de Cuero" class="product-img">
+                </div>
+                <div class="product-category">Accesorios</div>
+                <h3 class="product-title">Straps de Levantamiento</h3>
+                <p class="product-desc">Correas de cuero rígido para entrenamiento. Agarre firme y resistencia
+                    comprobada.</p>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&q=80"
+                        alt="Cartera de Cuero" class="product-img">
+                </div>
+                <div class="product-category">Carteras</div>
+                <h3 class="product-title">Cartera Clásica</h3>
+                <p class="product-desc">Cartera bifold en cuero italiano con compartimentos para tarjetas y billetes.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="story">
+        <div class="story-grid">
+            <div class="story-img">
+                <img src="https://images.unsplash.com/photo-1605908502724-9093a79a1b39?auto=format&fit=crop&w=900&q=80"
+                    alt="Nuestro taller">
+            </div>
+            <div class="story-content">
+                <div class="section-eyebrow">Sobre Nosotros</div>
+                <h2>Tradición artesanal desde Nuevo León</h2>
+                <p>En Maxima Leather creemos que un buen artículo de cuero debe acompañarte por años. Por eso trabajamos
+                    con cueros seleccionados y técnicas artesanales que han pasado de generación en generación.</p>
+                <p>Cada pieza que sale de nuestro taller en San Nicolás de los Garza es cortada, cosida y acabada a mano
+                    por artesanos con décadas de experiencia. No fabricamos en serie: fabricamos para que dure.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#inicio" class="logo">Maxima <span>Leather</span></a>
+                <p>Artículos de cuero premium hechos a mano en Nuevo León, México. Calidad artesanal con garantía de por
+                    vida.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Categorías</h4>
+                <ul>
+                    <li><a href="#colecciones">Cinturones</a></li>
+                    <li><a href="#colecciones">Maletines</a></li>
+                    <li><a href="#colecciones">Accesorios</a></li>
+                    <li><a href="#colecciones">Carteras</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="#proceso">Sobre Nosotros</a></li>
+                    <li><a href="#proceso">Nuestro Taller</a></li>
+                    <li><a href="#proceso">Garantía</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Maxima Leather. Todos los derechos reservados.</span>
+            <span>San Nicolás de los Garza, Nuevo León, México</span>
+        </div>
+    </footer>
+
+</body>
+
+</html>
